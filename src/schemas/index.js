@@ -1,7 +1,10 @@
 import * as yup from "yup";
 
+const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{5,}$/;
+
+
 export const basicSchema = yup.object({
-    name:yup.string().required('Please Enter Your Name').min(2, 'name must be atleast 2 letters'),
+    name:yup.string().required('Please Enter Your Name').min(2, 'Name must be atleast 2 letters'),
     email: yup
     .string()
     .required('Email is Required')
@@ -11,8 +14,8 @@ export const basicSchema = yup.object({
       return emailRegex.test(value);
     })
     .test('after-at', 'Email ends with gmail.com', (value) => {
-      // Check if email has '@' and ensure domain suggestion
-      if (value.includes('@g') && !value.endsWith('@gmail.com')) {
+      
+      if (value.includes('@') && !value.endsWith('@gmail.com')) {
         return false;
       }
       return true;
@@ -24,9 +27,9 @@ export const basicSchema = yup.object({
     }),
     password: yup
     .string()
-    .min(5)
-    .matches(passwordRules, { message: "Password is Required" })
+    .oneOf(['rishiME@199'], 'Password must be start from r__M_9') // Validate against the specific password
     .required("Password is Required"),
+
   confirmPassword: yup
     .string()
     .oneOf([yup.ref("password"), null], "Passwords must match")

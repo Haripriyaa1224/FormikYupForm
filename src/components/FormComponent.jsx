@@ -1,13 +1,24 @@
-import React from "react";
+import React,{useState} from "react";
 import { useFormik } from "formik";
 import { basicSchema } from "../schemas";
 
-const onSubmit=()=>{
-    console.log('Submitted');
-}
+
 
 const FormComponent = () => {
-  const {values, errors, touched, handleBlur, handleChange, handleSubmit} = useFormik({
+    const [successMessage, setSuccessMessage] = useState(""); 
+
+    const onSubmit=async (values, actions)=>{
+        console.log('Submitted');
+        await new Promise((resolve) =>setTimeout(resolve,1000));
+        setSuccessMessage("Sign Up Successful");
+        actions.resetForm();
+    }
+
+    setTimeout(() => {
+        setSuccessMessage("");
+      }, 25000);
+
+  const {values, errors, touched, isSubmitting, isValid, handleBlur, handleChange, handleSubmit} = useFormik({
     initialValues: {
       name: "",
       email: "",
@@ -15,7 +26,8 @@ const FormComponent = () => {
       confirmPassword: "",
     },
     validationSchema: basicSchema,
-    onSubmit
+    onSubmit,
+    validateOnMount: true,
   });
 //   console.log(values);
 console.log(errors);
@@ -32,6 +44,7 @@ console.log(errors);
         placeholder="Name"
         className={errors.name && touched.name ? 'input-error' : ''}
       />
+      {errors.name && touched.name && <p className="error">{errors.name}</p>}
       </div>
       <div>
       <label htmlFor="email">Email</label>
@@ -44,6 +57,7 @@ console.log(errors);
         placeholder="Email"
         className={errors.email && touched.email ? 'input-error' : ''}
       />
+      {errors.email && touched.email && <p className="error">{errors.email}</p>}
       </div>
       <div>
       <label htmlFor="password">Password</label>
@@ -56,6 +70,7 @@ console.log(errors);
         placeholder="Password"
         className={errors.password && touched.password ? 'input-error' : ''}
       />
+      {errors.password && touched.password && <p className="error">{errors.password}</p>}
       </div>
       <div>
       <label htmlFor="confirmPassword">Confirm Password</label>
@@ -68,8 +83,16 @@ console.log(errors);
         placeholder="Confirm Password"
         className={errors.confirmPassword && touched.confirmPassword ? 'input-error' : ''}
       />
+      {errors.confirmPassword && touched.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
       </div>
-      <button type="submit">Submit</button>
+      {successMessage && <p className="success-message">{successMessage}</p>}
+      <button 
+        disabled={!isValid || isSubmitting} 
+        type="submit"
+      >
+        Submit
+      </button>
+     
     </form>
   );
 };

@@ -4,32 +4,10 @@
 }
 
 .error {
-  color: #fc8181;
-  font-size: 0.75rem;
+  color: #b21e1e;
+  font-size: 1.25rem;
   text-align: left;
-  margin-top: 0.25rem;
-}
-
-.checkbox {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 1rem;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
-}
-nav h3 {
-  margin: 1rem;
-  cursor: pointer;
-  color: #718096;
-}
-nav h3:hover {
-  color: white;
+  margin-top: 0.5rem;
 }
 
 form {
@@ -46,8 +24,7 @@ form label {
   margin: 1rem 0 0.2rem;
 }
 
-input,
-select {
+input {
   width: 100%;
   padding: 0.65rem 0.5rem;
   font-size: 1rem;
@@ -58,28 +35,20 @@ select {
   outline: none;
 }
 
-input:focus,
-select:focus {
+input:focus {
   border-color: #4299e1;
 }
 
-input::placeholder,
-select::placeholder {
+input::placeholder {
   color: #a0aec0;
-}
-
-input[type="checkbox"] {
-  width: fit-content;
-  margin-right: 0.5rem;
-  transform: scale(1.25);
 }
 
 button {
   display: block;
   margin: 1rem 0;
   padding: 0.35rem 0.5rem;
-  background-color: #4299e1;
-  color: #1a202c;
+  background-color: #4f2711;
+  color: white;
   border: none;
   border-radius: 3px;
   width: 100%;
@@ -88,11 +57,18 @@ button {
   cursor: pointer;
 }
 
-input.input-error,
-select.input-error {
+input.input-error {
   border-color: #fc8181;
 }
 
 button:disabled {
-  opacity: 0.35;
+  opacity: 0.5;
+  /* color: #a0aec0; */
+}
+
+.success-message {
+  color: green;
+  font-weight: bolder;
+  margin-top: 10px;
+  text-align: center;
 }
