@@ -69,6 +69,7 @@ console.log(errors);
         id="password"
         placeholder="Password"
         className={errors.password && touched.password ? 'input-error' : ''}
+        autoComplete="new-password"
       />
       {errors.password && touched.password && <p className="error">{errors.password}</p>}
       </div>
@@ -81,6 +82,7 @@ console.log(errors);
         type="password"
         id="confirmPassword"
         placeholder="Confirm Password"
+        autoComplete="new-password"
         className={errors.confirmPassword && touched.confirmPassword ? 'input-error' : ''}
       />
       {errors.confirmPassword && touched.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
