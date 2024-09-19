@@ -1,6 +1,6 @@
 import React from 'react'
 import FormComponent from './components/FormComponent'
-import './app.css'
+import './App.css'
 
 const App = () => {
   return (
