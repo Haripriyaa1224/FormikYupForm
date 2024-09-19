@@ -5,7 +5,9 @@ import './app.css'
 const App = () => {
   return (
     <>
+    <div className='App'>
     <FormComponent />
+    </div>
     </>
   )
 }

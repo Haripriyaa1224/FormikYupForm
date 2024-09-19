@@ -32,6 +32,7 @@ const FormComponent = () => {
 //   console.log(values);
 console.log(errors);
   return (
+    
     <form onSubmit={handleSubmit} autoComplete="off">
         <div>
       <label htmlFor="name">Name</label>
@@ -92,7 +93,7 @@ console.log(errors);
         disabled={!isValid || isSubmitting} 
         type="submit"
       >
-        Submit
+        Sign Up
       </button>
      
     </form>

@@ -1,11 +1,14 @@
 .App {
   text-align: center;
-  padding: 5rem 1rem;
+  padding: 5rem 13rem;
+  display: flex;
+  background-color: #EFEDEE;
+  height: 100vh;
 }
 
 .error {
   color: #b21e1e;
-  font-size: 1.25rem;
+  font-size: 1rem;
   text-align: left;
   margin-top: 0.5rem;
 }
@@ -22,6 +25,8 @@ form label {
   display: block;
   text-align: left;
   margin: 1rem 0 0.2rem;
+  text-transform: uppercase;
+  color: #55311C;
 }
 
 input {
@@ -33,6 +38,7 @@ input {
   background-color: white;
   border-radius: 10px;
   outline: none;
+  
 }
 
 input:focus {
@@ -50,11 +56,12 @@ button {
   background-color: #4f2711;
   color: white;
   border: none;
-  border-radius: 3px;
+  border-radius: 10px;
   width: 100%;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 input.input-error {
